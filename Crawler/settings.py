@@ -8,10 +8,10 @@ wired in so later stages (scheduler, queue, link-following) can be layered
 on top without reworking this part.
 """
 
-BOT_NAME = "darktrace_crawler"
+BOT_NAME = "Crawler"
 
-SPIDER_MODULES = ["darktrace_crawler.spiders"]
-NEWSPIDER_MODULE = "darktrace_crawler.spiders"
+SPIDER_MODULES = ["Crawler.spiders"]
+NEWSPIDER_MODULE = "Crawler.spiders"
 
 # Identifies the crawler/build in every crawl result record (audit trail).
 CRAWLER_BUILD = "darktrace-crawler/0.1.0"
@@ -56,15 +56,15 @@ I2P_HTTP_PROXY = "http://127.0.0.1:4444"
 
 # --- Middlewares --------------------------------------------------------------
 DOWNLOADER_MIDDLEWARES = {
-    "darktrace_crawler.middlewares.ProxyRoutingMiddleware": 350,
-    "darktrace_crawler.middlewares.BackoffRetryMiddleware": 550,
+    "Crawler.middlewares.ProxyRoutingMiddleware": 350,
+    "Crawler.middlewares.BackoffRetryMiddleware": 550,
     "scrapy.downloadermiddlewares.retry.RetryMiddleware": None,  # replaced above
 }
 
 ITEM_PIPELINES = {
-    "darktrace_crawler.pipelines.ContentHashPipeline": 100,
-    "darktrace_crawler.pipelines.RawEvidenceStoragePipeline": 200,
-    "darktrace_crawler.pipelines.CrawlResultLogPipeline": 300,
+    "Crawler.pipelines.ContentHashPipeline": 100,
+    "Crawler.pipelines.RawEvidenceStoragePipeline": 200,
+    "Crawler.pipelines.CrawlResultLogPipeline": 300,
 }
 
 # Where raw evidence (original content, preserved before processing) is written.

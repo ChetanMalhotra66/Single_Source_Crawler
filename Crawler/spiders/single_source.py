@@ -16,7 +16,7 @@ from datetime import datetime, timezone
 
 import scrapy
 
-from darktrace_crawler.items import CrawlResultItem
+from Crawler.items import CrawlResultItem
 
 
 class SingleSourceSpider(scrapy.Spider):
